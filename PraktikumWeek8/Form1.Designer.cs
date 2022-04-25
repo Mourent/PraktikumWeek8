@@ -44,6 +44,13 @@ namespace PraktikumWeek8
             this.labelOutputManager2 = new System.Windows.Forms.Label();
             this.labelOutputCaptain1 = new System.Windows.Forms.Label();
             this.labelOutputManager1 = new System.Windows.Forms.Label();
+            this.dgvMatch = new System.Windows.Forms.DataGridView();
+            this.btnCheck = new System.Windows.Forms.Button();
+            this.labelTanggal = new System.Windows.Forms.Label();
+            this.labelSkor = new System.Windows.Forms.Label();
+            this.labelOutTanggal = new System.Windows.Forms.Label();
+            this.labelOutSkor = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatch)).BeginInit();
             this.SuspendLayout();
             // 
             // cBoxHome
@@ -132,60 +139,114 @@ namespace PraktikumWeek8
             this.labelOutputCapacity.AutoSize = true;
             this.labelOutputCapacity.Location = new System.Drawing.Point(230, 217);
             this.labelOutputCapacity.Name = "labelOutputCapacity";
-            this.labelOutputCapacity.Size = new System.Drawing.Size(35, 13);
+            this.labelOutputCapacity.Size = new System.Drawing.Size(0, 13);
             this.labelOutputCapacity.TabIndex = 14;
-            this.labelOutputCapacity.Text = "label8";
             // 
             // labelOutputStadium
             // 
             this.labelOutputStadium.AutoSize = true;
             this.labelOutputStadium.Location = new System.Drawing.Point(230, 172);
             this.labelOutputStadium.Name = "labelOutputStadium";
-            this.labelOutputStadium.Size = new System.Drawing.Size(35, 13);
+            this.labelOutputStadium.Size = new System.Drawing.Size(0, 13);
             this.labelOutputStadium.TabIndex = 13;
-            this.labelOutputStadium.Text = "label9";
             // 
             // labelOutputCaptain2
             // 
             this.labelOutputCaptain2.AutoSize = true;
             this.labelOutputCaptain2.Location = new System.Drawing.Point(394, 116);
             this.labelOutputCaptain2.Name = "labelOutputCaptain2";
-            this.labelOutputCaptain2.Size = new System.Drawing.Size(41, 13);
+            this.labelOutputCaptain2.Size = new System.Drawing.Size(0, 13);
             this.labelOutputCaptain2.TabIndex = 12;
-            this.labelOutputCaptain2.Text = "label10";
             // 
             // labelOutputManager2
             // 
             this.labelOutputManager2.AutoSize = true;
             this.labelOutputManager2.Location = new System.Drawing.Point(394, 77);
             this.labelOutputManager2.Name = "labelOutputManager2";
-            this.labelOutputManager2.Size = new System.Drawing.Size(41, 13);
+            this.labelOutputManager2.Size = new System.Drawing.Size(0, 13);
             this.labelOutputManager2.TabIndex = 11;
-            this.labelOutputManager2.Text = "label11";
             // 
             // labelOutputCaptain1
             // 
             this.labelOutputCaptain1.AutoSize = true;
             this.labelOutputCaptain1.Location = new System.Drawing.Point(88, 116);
             this.labelOutputCaptain1.Name = "labelOutputCaptain1";
-            this.labelOutputCaptain1.Size = new System.Drawing.Size(41, 13);
+            this.labelOutputCaptain1.Size = new System.Drawing.Size(0, 13);
             this.labelOutputCaptain1.TabIndex = 10;
-            this.labelOutputCaptain1.Text = "label12";
             // 
             // labelOutputManager1
             // 
             this.labelOutputManager1.AutoSize = true;
             this.labelOutputManager1.Location = new System.Drawing.Point(88, 77);
             this.labelOutputManager1.Name = "labelOutputManager1";
-            this.labelOutputManager1.Size = new System.Drawing.Size(41, 13);
+            this.labelOutputManager1.Size = new System.Drawing.Size(0, 13);
             this.labelOutputManager1.TabIndex = 9;
-            this.labelOutputManager1.Text = "label13";
+            // 
+            // dgvMatch
+            // 
+            this.dgvMatch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMatch.Location = new System.Drawing.Point(12, 368);
+            this.dgvMatch.Name = "dgvMatch";
+            this.dgvMatch.Size = new System.Drawing.Size(505, 233);
+            this.dgvMatch.TabIndex = 15;
+            // 
+            // btnCheck
+            // 
+            this.btnCheck.Location = new System.Drawing.Point(219, 245);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(75, 23);
+            this.btnCheck.TabIndex = 16;
+            this.btnCheck.Text = "Check";
+            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+            // 
+            // labelTanggal
+            // 
+            this.labelTanggal.AutoSize = true;
+            this.labelTanggal.Location = new System.Drawing.Point(179, 290);
+            this.labelTanggal.Name = "labelTanggal";
+            this.labelTanggal.Size = new System.Drawing.Size(52, 13);
+            this.labelTanggal.TabIndex = 17;
+            this.labelTanggal.Text = "Tanggal :";
+            // 
+            // labelSkor
+            // 
+            this.labelSkor.AutoSize = true;
+            this.labelSkor.Location = new System.Drawing.Point(196, 327);
+            this.labelSkor.Name = "labelSkor";
+            this.labelSkor.Size = new System.Drawing.Size(35, 13);
+            this.labelSkor.TabIndex = 18;
+            this.labelSkor.Text = "Skor :";
+            // 
+            // labelOutTanggal
+            // 
+            this.labelOutTanggal.AutoSize = true;
+            this.labelOutTanggal.Location = new System.Drawing.Point(242, 290);
+            this.labelOutTanggal.Name = "labelOutTanggal";
+            this.labelOutTanggal.Size = new System.Drawing.Size(13, 13);
+            this.labelOutTanggal.TabIndex = 19;
+            this.labelOutTanggal.Text = "--";
+            // 
+            // labelOutSkor
+            // 
+            this.labelOutSkor.AutoSize = true;
+            this.labelOutSkor.Location = new System.Drawing.Point(242, 327);
+            this.labelOutSkor.Name = "labelOutSkor";
+            this.labelOutSkor.Size = new System.Drawing.Size(13, 13);
+            this.labelOutSkor.TabIndex = 20;
+            this.labelOutSkor.Text = "--";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 264);
+            this.ClientSize = new System.Drawing.Size(529, 624);
+            this.Controls.Add(this.labelOutSkor);
+            this.Controls.Add(this.labelOutTanggal);
+            this.Controls.Add(this.labelSkor);
+            this.Controls.Add(this.labelTanggal);
+            this.Controls.Add(this.btnCheck);
+            this.Controls.Add(this.dgvMatch);
             this.Controls.Add(this.labelOutputCapacity);
             this.Controls.Add(this.labelOutputStadium);
             this.Controls.Add(this.labelOutputCaptain2);
@@ -204,6 +265,7 @@ namespace PraktikumWeek8
             this.Name = "Form1";
             this.Text = "Manager :";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,6 +288,12 @@ namespace PraktikumWeek8
         private System.Windows.Forms.Label labelOutputManager2;
         private System.Windows.Forms.Label labelOutputCaptain1;
         private System.Windows.Forms.Label labelOutputManager1;
+        private System.Windows.Forms.DataGridView dgvMatch;
+        private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.Label labelTanggal;
+        private System.Windows.Forms.Label labelSkor;
+        private System.Windows.Forms.Label labelOutTanggal;
+        private System.Windows.Forms.Label labelOutSkor;
     }
 }
 

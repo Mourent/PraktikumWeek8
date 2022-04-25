@@ -26,12 +26,11 @@ namespace PraktikumWeek8
         {
             sqlConnect.Open();
             DataTable dtTeam = new DataTable();
-            sqlQuery = "select team_name as 'NAMA TIM', team_id as 'ID TEAM' from team";
+            sqlQuery = "select team_name as 'NAMA TIM' from team";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtTeam);
             DataTable dtTeam2 = new DataTable();
-            sqlQuery = "select team_name as 'NAMA TIM', team_id as 'ID TEAM' from team";
             sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
             sqlAdapter = new MySqlDataAdapter(sqlCommand);
             sqlAdapter.Fill(dtTeam2);
@@ -78,7 +77,6 @@ namespace PraktikumWeek8
             catch (Exception)
             {
 
-               
             }
             
         }
@@ -104,6 +102,30 @@ namespace PraktikumWeek8
             catch (Exception)
             {
                 
+            }
+        }
+
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable dtTglSkor = new DataTable();
+                sqlQuery = "select date_format(m.match_date, '%d %M %Y') as 'Tanggal', concat(goal_home, ' - ', goal_away) as 'Skor' from `match` m, team t, team t2 where t.team_id = m.team_home and t2.team_id = m.team_away and t.team_name = '"+cBoxHome.SelectedValue+"' and t2.team_name = '"+cBoxAway.SelectedValue+"';";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtTglSkor);
+                labelOutTanggal.Text = dtTglSkor.Rows[0]["Tanggal"].ToString();
+                labelOutSkor.Text = dtTglSkor.Rows[0]["Skor"].ToString();
+                DataTable dtmatch = new DataTable();
+                sqlQuery = "select dm.minute, if(dm.type = 'GW',  if(dm.team_id != t.team_id, p.player_name, ' '),if(dm.team_id = t.team_id, p.player_name, ' ')) as 'Player Name 1',  if(dm.type = 'GW', if(dm.team_id != t.team_id, 'Own Goal', ' '),if(dm.team_id = t.team_id, if(dm.type = 'CY', 'Yellow Card', if(dm.type = 'CR', 'Red Card', if(dm.type = 'GO', 'Goal', if(dm.type = 'GP', 'Goal Penalty', if(dm.type = 'GW', 'Own Goal', 'Penalty Miss'))))),' ')) as 'Type 1',  if(dm.type = 'GW', if(dm.team_id != t2.team_id, p.player_name, ' '), if(dm.team_id = t2.team_id, p.player_name, ' ')) as 'Player Name 2',  if(dm.type = 'GW', if(dm.team_id != t2.team_id, p.player_name, ' '), if(dm.team_id = t2.team_id,if(dm.type = 'CY', 'Yellow Card', if(dm.type = 'CR', 'Red Card', if(dm.type = 'GO', 'Goal', if(dm.type = 'GP', 'Goal Penalty', if(dm.type = 'GW', 'Own Goal', 'Penalty Miss'))))), ' ')) as 'Type 2' from dmatch dm, team t, `match` m, player p, team t2 where t.team_id = m.team_home and t2.team_id = m.team_away and m.match_id = dm.match_id and t.team_name = '" + cBoxHome.SelectedValue+"' and t2.team_name = '"+cBoxAway.SelectedValue+"' and p.player_id = dm.player_id;";
+                sqlCommand = new MySqlCommand(sqlQuery, sqlConnect);
+                sqlAdapter = new MySqlDataAdapter(sqlCommand);
+                sqlAdapter.Fill(dtmatch);
+                dgvMatch.DataSource = dtmatch;
+            }
+            catch (Exception)
+            {
+
             }
         }
     }
